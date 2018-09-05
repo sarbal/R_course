@@ -1,7 +1,7 @@
-# Lesson 1: R basics
+# Part 1: R basics
 First things first! Download these files into your working directory: 
-- [lesson1](../data/lesson1.Rdata)
-- [helper.R](../data/helper.R)
+- [primer](../lessons/primer.Rdata)
+- [helper.R](../lessons/helper.R)
 ###
 To check your working directory:
 ```
@@ -9,7 +9,7 @@ getwd()
 ```
 To set your working diretory: 
 ```
-setwd("H:/URP")
+setwd("C:/my_working_dir")
 ```
 Run this to install/load libraries (this might take a while if you do not have most of the packages installed, so run this as soon as possible). 
 ```
@@ -33,7 +33,7 @@ print("Hello World")
 - The print function is given an argument (also known as input) within the '()' 
 - All functions are called this way
 ``` 
-load("lesson1.Rdata")
+load("primer.Rdata")
 sum(x)
 plot(x,y)
 require(limma)
@@ -244,20 +244,10 @@ ls()     # lists all the objects in your environment
 4. Generate two square matrices (equal width and height) named B1 and B2. Multiply these matrices and save the output of the multiplication as B. Print out the first column of B1, the last row of B2, and then the diagonal of B. 
 5. Plot any of the plots from the CatterPlot page.
 6. Make a matrix of dimension 20 by 40, full of zeroes. Then, modify the matrix so that once viewed, it spells out your initials OR a random shape OR pixel art. Use the [image()](https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/image) function to view it as you go along, but remember, it plots things [rotated](https://www.r-bloggers.com/creating-an-image-of-a-matrix-in-r-using-image/)... Once done, plot it using the image function, but remove the axes. 
-7. Write up a brief (one or two sentences) summary of your URP project in your R markdown file. 
-8. "Knit" your R markdown file into an html page, a pdf and a word document. Save the latter two. Email either file to me! 
- 
-Solutions: Next week!
-
-Back to the [homepage](../README.md)
 
 
-
-
-# Lesson 2: More R
+# Part 2: More R
 Some visual things you can do with R. Once more, download these files into your working directory:
-- [lesson2](../data/lesson2.Rdata).
-- [helper.R](../data/helper.R)
 ####  
 To check your working directory:
 ```
@@ -523,8 +513,4 @@ cividis()
 2. Load the file "lesson2.Rdata" into your environment. Plot three plots of the dataset "X". Be as creative as you can in one, as deceptive as you can in the second, and then as clear as you can in the last.
 3. Now, using the dataset "Y", plot a heatmap. Aim for clarity!
 4. And finally, look at dataset "Z". Plot it the best way you think would show its key feature.
-5. "Knit" your R markdown file into an html page, a pdf and a word document. Save the latter two. Email either file to me!
- 
-Solutions: Next week!
 
-Back to the [homepage](../README.md)
