@@ -3,7 +3,7 @@
 An R tutorial designed for the 2018 Postdoc Retreat at Cold Spring Harbor Laboratory.
 
 Written by: 
-- Sara Ballouz
+- Sara Ballouz and Maggie Crow 
 
 
 ## Intro
