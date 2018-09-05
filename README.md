@@ -7,10 +7,10 @@ Written by:
 
 
 ## Intro
-Let's start at the very begining [(a very good place to start)](intro.md)
+Let's start at the very begining [(a very good place to start)](/lessons/intro.md)
 
 ## R basics
-[First things first!](primer.md)
+[First things first!](/lessons/primer.md)
 
 
 
