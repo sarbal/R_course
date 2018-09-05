@@ -1,4 +1,4 @@
-# URP R course
+# Primer R course
 
 An R tutorial designed for the 2018 Postdoc Retreat at Cold Spring Harbor Laboratory.
 
