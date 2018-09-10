@@ -17,7 +17,7 @@ source("helper.R")
 ```
 
 
-## Defintions
+## Definitions
 - Variable: Holds a value 
 - Function: Takes in input, does some magic/task, returns output
 - Command: Code snippet you want to evaluate
@@ -39,9 +39,30 @@ plot(x,y)
 require(limma)
 source("helper.R")
 ```
-- The output is returned once the function or command is evaluated - i.e. when you run it or enter into the command console 
-
+- The output is returned once the function or command is evaluated - i.e. when you run it or enter into the command console. 
 Try it! 
+
+- NOTE: Some functions don't require any input: 
+
+``` 
+my_function <- function() {
+print("hello world!")
+}
+
+my_function()
+``` 
+- Many functions have default settings. If you don't specify the input the defaults will be used.
+
+``` 
+my_function <- function(x, y = 5) {
+print(x+y)
+}
+
+my_function(x = 5)
+my_function(x = 5, y = 10)
+my_function(5,10)
+``` 
+
   
 ## Simple arithmetic
 - R is really a calculator
@@ -112,9 +133,12 @@ c(1,3,5)
 c('A', 'B', 'C')
 c("Hello", "Goodbye")
 1:100
-rnorm(100)
-rep(1,10)
-seq(0,200,10)
+```
+- can sample from a normal distribution with the rnorm() function, generate repeated sequences with the rep() function, and generate regular sequences with the seq() function
+``` 
+rnorm(n = 100)
+rep(x = 1, times = 10)
+seq(from = 0, to = 200, by = 10)
 ```
 - can assign them to variables 
 ```  
@@ -138,7 +162,7 @@ matrix(1:10, ncol=5, nrow=2)
 cbind(1:10, 10:1)
 rbind(1:10, 10:1)
 ```
-- can also access elements via indices, but this time we select the row, then column:
+- can also access elements via indices, but this time we select the row, then column in square brackets [row number, column number]:
 ``` 
 A <- diag(5)
 A[1,5] <- 9
@@ -150,6 +174,7 @@ A
 my_seq <- seq(0,200,10)
 my_seq[-10]
 my_seq[-10:-20]
+my_seq[-c(10:20)]
 ```
 
 ### Advanced data types 
@@ -215,7 +240,7 @@ data.frame( x=1:10, y = rep("hello", 10) )
 - Functions take in inputs or arguments  
 - Every function has its own set of inputs it needs 
 - They have to be entered into the function in the correct order 
-- You can find out the necessary input from the man page of a function 
+- You can find out the necessary input from the main page of a function 
 ``` 
 ?order
 ```
@@ -255,7 +280,7 @@ getwd()
 ```
 To set your working diretory: 
 ```
-setwd("H:/URP")
+setwd("H:/PostDocs")
 ```
 Run this to install/load libraries
 ```
@@ -281,7 +306,7 @@ plot(iris)
 pairs(iris, upper.panel = NULL )
 ```
 - Now that we've seen all the bits of the data, we can play with visualizing parts of it differently  
-- Let's start with a scatter plot of the sepal length versus the petal length
+- Let's start with a scatter plot of the sepal length versus the petal length 
 ``` 
 plot(iris$Sepal.Length, iris$Petal.Length, pch=19, col=as.numeric(iris$Species) )
 ```
@@ -295,7 +320,7 @@ plot(lowess(iris$Sepal.Length, iris$Petal.Length), pch=19)
 plot(Petal.Length ~ Sepal.Length, data=iris, pch=19, col=Species)
 ```
 
-- We can view sepal width by species distributions with a boxplot, beanplot, violin plot or "joy" plots: 
+- We can view sepal width by species distributions with a boxplot, beanplot, violin plot or "joy" plots (note that the functions require the data to be in slightly different formats): 
 ``` 
 boxplot(iris$Sepal.Width~ iris$Species, col=1:3 )
 beanplot(iris$Sepal.Width~ iris$Species, col=list(1,2,3))
@@ -313,7 +338,7 @@ barplot(iris.bar, col="black", xlab="Species", ylab="Count", main="Bar plot of m
 ```
 - We see biomodality (two modes/peaks) in the petal width data 
 - And there is a clear division (<0.75)
-- Let us take a look to see what is distinct about the first peak 
+- Let's take a look and see what is distinct about the first peak 
 - Since we want petal widths less than 0.75, we can slice the data:
 ``` 
 small_petals <- which(iris$Petal.Width <0.75)
@@ -325,13 +350,13 @@ count(iris$Species)
 ```
 hist(iris$Petal.Width, col="lightblue")
 ``` 
-- And then adding each individual species as a layer  
+- And then adding each individual species as a layer with the parameter add = T
 ```
 hist(iris$Petal.Width[iris$Species=="setosa"], col="red", add=T)
 hist(iris$Petal.Width[iris$Species=="versicolor"], col="blue", add=T)
 hist(iris$Petal.Width[iris$Species=="virginica"], col="purple", add=T)
 ```
-- Oops! The histograms are all wonky because we've not specified how bin the data. R works "intuitively", and picks the best breaks for that data.  
+- Oops! The histograms are all wonky because we've not specified how to bin the data. R works "intuitively", and picks the best breaks for the data.  
 - We can force similar histogram breaks so that we can bin the data equally
 ```
 h <- hist(iris$Petal.Width, col="lightblue")
@@ -420,7 +445,7 @@ heatmap.3(samples.cor, col=plasma(100), ColSideCol=cols7[as.numeric(iris$Species
 
 
 ## "Tidyr" versions 
-We can do most all of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf).There are less things finicky things to worry about, and is generally more intuitive. 
+We can do most of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). It is generally more intuitive. 
 ```
 g <- ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) 
 g
@@ -489,7 +514,7 @@ cm.colors(5)
 ```
 library(RColorBrewer)
 display.brewer.all()
-brewer.pal(8, "Set3" ) 
+brewer.pal(8, "Set3") 
 ```
 - everyone's new favorite are the viridis palettes (color-blind friendly)
 ```
