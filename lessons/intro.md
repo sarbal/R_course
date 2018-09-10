@@ -83,3 +83,4 @@ require(very_important_data)
 - https://peerj.com/collections/50-practicaldatascistats/
 - http://www-huber.embl.de/csama2018/#home
 - https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown
+- https://masalmon.eu/2018/07/22/wheretogethelp/
