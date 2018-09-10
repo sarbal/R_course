@@ -17,7 +17,7 @@ source("helper.R")
 ```
 
 
-## Defintions
+## Definitions
 - Variable: Holds a value 
 - Function: Takes in input, does some magic/task, returns output
 - Command: Code snippet you want to evaluate
@@ -100,7 +100,6 @@ data <- data + more_data
 ```
 - Strings:
 ``` 
-"Yaaaas"
 "Booo"
 "Whatever"
 ```
