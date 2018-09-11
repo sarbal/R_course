@@ -1,6 +1,11 @@
 # Part 2: MoRe 
 R is great for data analysis. This next part will go over how to read in data, some basic manipulations, and then visualization! 
 
+For this part, you will need: 
+- [my_dataA.csv](../data/my_dataA.csv)
+- [my_dataB.tab](../data/my_dataB.tab)
+- [DatasaurusDozen.txt](../data/DatasaurusDozen.txt)
+- [helper.R](../lessons/helper.R)
 
 ## Reading in data
 - Depending on the format, there are multiple ways to input data into R 
