@@ -1,5 +1,5 @@
 # Part 2: MoRe 
-R is great for data analysis. This next part will go over how to read in data, some basic manipulations, and then visualization! 
+R is great for data analysis. This next part will go over how to read in data, dp some basic manipulations, and then visualize the results! 
 
 For this part, you will need: 
 - [my_dataA.csv](../data/my_dataA.csv)
@@ -47,7 +47,7 @@ write.csv(my_list, file="my_list.csv")
 - As binary file
 ```
 all_my_data <- rnorm(10000) 
-my_function <- function(x){ 
+my_function <- function(){ 
   print("Hello, world!") 
 }
 save(all_my_data, my_function, file="my_data.Rdata")
@@ -69,7 +69,7 @@ dev.off()
 
 ### Clean up data
 Always good/necessary to do data/sanity checks. 
-- Do the data look like what you think they should? 
+- Do the data look like how you think they should? 
 - Same number of lines imported as the file contains? 
 - No weird characters? Some special characters have special properties when being read in. 
 - How many empty values? Find/replace empty values with NAs 
