@@ -242,7 +242,7 @@ my_plot <- function(data){
 - Some functions don't require any input: 
 ``` 
 my_function <- function() {
-print("hello world!")
+print("Hello, world!")
 }
 
 my_function()
