@@ -1,6 +1,6 @@
 # Part 1: R basics
 First things first! Download these files into your working directory: 
-- [primer](../lessons/primer.Rdata)
+- [primer](../data/primer.Rdata)
 - [helper.R](../lessons/helper.R)
 
 ## Command console: where you work  
