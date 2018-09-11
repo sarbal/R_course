@@ -1,7 +1,5 @@
 # Part 2: MoRe 
 R is great for data analysis. This next part will go over how to read in data, some basic manipulations, and then visualization! 
-Before we start: 
-- Download the files that are in the [data folder](../data) and move the files into your working directory. 
 
 
 ## Reading in data
