@@ -1,5 +1,7 @@
 # Part 1: R basics
-First things first! Download these files into your working directory: 
+First things first! Download the files that are in [data folder](../data) into your working directory: 
+
+For this part, you will need: 
 - [primer](../data/primer.Rdata)
 - [helper.R](../lessons/helper.R)
 
