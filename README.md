@@ -10,7 +10,7 @@ Written by:
 Let's start at the very beginning [(a very good place to start)](/lessons/intro.md)
 
 ## Lessons 
-[First things first!](/lessons/primer.md)
+[First things first!](/lessons/part1.md)
 
 [And more](/lessons/part2.md)
 
