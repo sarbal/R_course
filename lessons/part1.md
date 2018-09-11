@@ -23,7 +23,7 @@ Run this to install/load libraries (this might take a while if you do not have m
 source("helper.R") 
 ```
 ### Try it out! 
-- Output is returned once the function or command is evaluated. For example, this is how to use the print function. 
+- Output is returned once a function or command is evaluated. For example, this is how to use the print function. 
 Type this in and press enter: 
 ```  
 print("Hello World")
@@ -233,7 +233,7 @@ dist
 ``` 
 ?order
 ```
-- you can write your function for tasks that are usually repetitive or have some 'abstract' purpose (i.e., plotting scatter)
+- you can write your function for tasks that are usually repetitive or have some 'abstract' purpose (i.e., making scatter plots)
 ```
 my_plot <- function(data){ 
  plot(data, pch=19, col="blue", cex=2)
