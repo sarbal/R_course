@@ -6,12 +6,12 @@ Written by:
 - Sara Ballouz and Maggie Crow 
 
 
-## Intro
-Let's start at the very begining [(a very good place to start)](/lessons/intro.md)
+## Before you arrive
+Let's start at the very beginning [(a very good place to start)](/lessons/intro.md)
 
-## R basics
+## Lessons 
 [First things first!](/lessons/primer.md)
-
+[And more](/lessons/part2.md)
 
 
 #### Inspired by many:
