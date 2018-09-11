@@ -2,7 +2,12 @@
 First things first! Download these files into your working directory: 
 - [primer](../lessons/primer.Rdata)
 - [helper.R](../lessons/helper.R)
-###
+
+## Command console: where you work  
+Now lets's run RStudio! 
+- When running RStudio or any R GUI, your commands and code is typed into the commond console. This is where we will be working from.   
+
+### Setting up
 To check your working directory:
 ```
 getwd()
@@ -15,6 +20,13 @@ Run this to install/load libraries (this might take a while if you do not have m
 ```
 source("helper.R") 
 ```
+### Try it out! 
+- Output is returned once the function or command is evaluated. For example, this is how to use the print function. 
+Type this in and press enter: 
+```  
+print("Hello World")
+```
+- The print function is given an argument (also known as input) within the '()'
 
 
 ## Definitions
@@ -22,49 +34,10 @@ source("helper.R")
 - Function: Takes in input, does some magic/task, returns output
 - Command: Code snippet you want to evaluate
 - Environment: Your workspace, where your variables, functions and packages are stored 
-- Object: variable, function, data etc. What fills up your environment
+- Object: variable, function, data etc. What fills up your environment.
 
-- Commands/functions in R are called like so: 
-  
-```  
-print("Hello World")
-```
 
-- The print function is given an argument (also known as input) within the '()' 
-- All functions are called this way
-``` 
-load("primer.Rdata")
-sum(x)
-plot(x,y)
-require(limma)
-source("helper.R")
-```
-- The output is returned once the function or command is evaluated - i.e. when you run it or enter into the command console. 
-Try it! 
-
-- NOTE: Some functions don't require any input: 
-
-``` 
-my_function <- function() {
-print("hello world!")
-}
-
-my_function()
-``` 
-- Many functions have default settings. If you don't specify the input the defaults will be used.
-
-``` 
-my_function <- function(x, y = 5) {
-print(x+y)
-}
-
-my_function(x = 5)
-my_function(x = 5, y = 10)
-my_function(5,10)
-``` 
-
-  
-## Simple arithmetic
+### Simple arithmetic
 - R is really a calculator
 - Basic arithmetic operators do what you think they would: +, -, *, /
 - Some special operators: %% (modulus), %*% (matrix multiplication) 
@@ -82,7 +55,7 @@ log10(100)
 - Order of operations matters
 - more here: https://www.statmethods.net/management/operators.html 
 
-## Variables
+### Variables
 - Variables are letters or words 
 - Store a value 
 - Could be a number, character, string, array (or vector), matrix, etc. 
@@ -107,7 +80,7 @@ data <- data + more_data
 ```
 
 
-## Data types 
+### Data types 
 - Numbers (integers, doubles): 
 ``` 
 1
@@ -235,18 +208,54 @@ E <- list()
 data.frame( x=1:10, y = rep("hello", 10) ) 
 ```
 
-## More functions
+### Functions 
+- User defined or from other packages 
 - Functions take in inputs or arguments  
 - Every function has its own set of inputs it needs 
 - They have to be entered into the function in the correct order 
 - You can find out the necessary input from the main page of a function 
+- The structure of a function: 
+```
+my_function <- function(arg1, arg2, ... ){
+  commands (or statements)
+  return(object)
+}
+```
+- objects in the function are local, so changing them within the function does not have a global effect (mostly, but beware!)
+- objects returned can be any data type
+- can look inside other functions to see how they work:
+```
+dist
+```
+- or you can go to the function's help page:
 ``` 
 ?order
 ```
-- Or by typing in the name of the function into the console 
-``` 
-order
+- you can write your function for tasks that are usually repetitive or have some 'abstract' purpose (i.e., plotting scatter)
 ```
+my_plot <- function(data){ 
+ plot(data, pch=19, col="blue", cex=2)
+}
+```
+- Some functions don't require any input: 
+``` 
+my_function <- function() {
+print("hello world!")
+}
+
+my_function()
+``` 
+- Many functions have default settings. If you don't specify the input the defaults will be used.
+
+``` 
+my_function <- function(x, y = 5) {
+print(x+y)
+}
+
+my_function(x = 5)
+my_function(x = 5, y = 10)
+my_function(5,10)
+``` 
 
 Some useful functions:
 ``` 
@@ -259,32 +268,81 @@ ls()     # lists all the objects in your environment
 
 
 ## Test yourself! 
-1. Install these packages (and their dependencies): 
-   +  From CRAN: [tidyverse](https://www.tidyverse.org/), [devtools](https://cran.r-project.org/web/packages/devtools/index.html)
-   +  From bioconductor: [EGAD](https://bioconductor.org/packages/release/bioc/html/EGAD.html)
-   +  From github: [CatterPlots](https://github.com/Gibbsdavidl/CatterPlots)
-2. Create an R markdown file (using RStudio). Save the file as "yourname_Lesson1.Rmd". Delete the instructions starting from "This is an [R...". For the remaining exercises, insert the code as R chunks when you are satisified with your solutions. An R chunk is code placed  after a line that starts with ` ```{ r } `and ends before a line with ` ``` `.  
-3. Generate a vector of random numbers (any which way you want) of length between 10 and 100, and assign it to a variable called "my_random_numbers". Print out the length of this vector, and then the first and last numbers of the vector. 
-4. Generate two square matrices (equal width and height) named B1 and B2. Multiply these matrices and save the output of the multiplication as B. Print out the first column of B1, the last row of B2, and then the diagonal of B. 
-5. Plot any of the plots from the CatterPlot page.
-6. Make a matrix of dimension 20 by 40, full of zeroes. Then, modify the matrix so that once viewed, it spells out your initials OR a random shape OR pixel art. Use the [image()](https://www.rdocumentation.org/packages/graphics/versions/3.5.1/topics/image) function to view it as you go along, but remember, it plots things [rotated](https://www.r-bloggers.com/creating-an-image-of-a-matrix-in-r-using-image/)... Once done, plot it using the image function, but remove the axes. 
+1. Generate a vector of random numbers (any which way you want) of length between 10 and 100, and assign it to a variable called "my_random_numbers". Print out the length of this vector, and then the first and last numbers of the vector. 
+2. Make a square matrix of size 20 by 20. 
 
 
-# Part 2: More R
-Some visual things you can do with R. Once more, download these files into your working directory:
-####  
-To check your working directory:
+# Part 2: MoRe 
+R is great for data analysis. This next part will go over how to read in data, some basic manipulations, and then visualization! 
+
+## Reading in data
+- Depending on the format, there are multiple ways to input data into R 
+### From files
+- From a comma or tab separated file:
 ```
-getwd()
+dataA <- read.csv(file="my_dataA.csv")
+dataB <- read.table(file="my_dataB.tab", header=TRUE)
+datasaurus <- read.delim(file="DatasaurusDozen.txt", sep="\t")
 ```
-To set your working diretory: 
+- There are other functions, like scan()
+- If you want to read in data from the prompt: 
 ```
-setwd("H:/PostDocs")
+z <- scan()
+1 2 3 
+
+z <- scan(what=" ")
+help me
+I'm bored
 ```
-Run this to install/load libraries
+
+- more here: https://stats.idre.ucla.edu/r/modules/reading-in-data-from-an-external-file/
+
+### From other places, types  
+- From connections (we haven't gone over this, but more here: https://stat.ethz.ch/R-manual/R-devel/library/base/html/connections.html)
+- Excel: using xlsx, rJava e.g., https://www.r-bloggers.com/read-excel-files-from-r/
+- PDFs: using pdftools, glue e.g., http://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/
+- URLs: using RCurl, e.g., http://rfunction.com/archives/1672 
+- SQL databases: using DBI, dblplyr, or plyr. e.g., SRADB https://www.rdocumentation.org/packages/SRAdb/versions/1.30.0/topics/getSRA 
+- APIs: using httr, jsonlite, e.g., https://www.r-bloggers.com/accessing-apis-from-r-and-a-little-r-programming/ 
+- Twitter: httpuv, twitteR, ROAuth, rtweet, ... e.g., https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html
+
+### Save/export data
+- As text 
 ```
-source("helper.R") 
+write.table(my_list, file="my_list.txt", sep="\t", quote="", row.names=T)
+write.csv(my_list, file="my_list.csv")
 ```
+- As binary file
+```
+all_my_data <- rnorm(10000) 
+my_function <- function(x){ 
+  print("Hello, world!") 
+}
+save(all_my_data, my_function, file="my_data.Rdata")
+```
+### Saving graphics 
+- As a pdf or postscript (vector graphics) 
+```
+pdf("my_plot.pdf") # or try postscript()  
+plot(my_data)
+dev.off() 
+```
+- Or as an image (.png, .jpeg)
+```
+png("my_plot.png") # or try # jpg() 
+plot(my_data)
+dev.off() 
+```
+
+
+### Clean up data
+Always good/necessary to do data/sanity checks. 
+- Do the data look like what you think they should? 
+- Same number of lines imported as the file contains? 
+- No weird characters? Some special characters have special properties when being read in. 
+- How many empty values? Find/replace empty values with NAs 
+- Correct data type? If numbers are stored as characters, there may be something odd in your input. 
+- Put data into different variables, into tables or into the tidyverse. 
 
 
 ## Visuals
@@ -531,10 +589,7 @@ cividis()
 - https://moderndata.plot.ly/create-colorful-graphs-in-r-with-rcolorbrewer-and-plotly/
 
 
-
 ## Test yourself! 
-1. Create an R markdown file (using RStudio). Save the file as "yourname_Lesson2.Rmd". Once again, delete the instructions starting from "This is an [R...". For the remaining exercises, insert the code as R chunks when you are satisified with your solutions. An R chunk is code placed  after a line that starts with ` ```{ r } `and ends before a line with ` ``` `.  
-2. Load the file "lesson2.Rdata" into your environment. Plot three plots of the dataset "X". Be as creative as you can in one, as deceptive as you can in the second, and then as clear as you can in the last.
-3. Now, using the dataset "Y", plot a heatmap. Aim for clarity!
-4. And finally, look at dataset "Z". Plot it the best way you think would show its key feature.
-
+1. Load the file "primer.Rdata" into your environment. Plot three plots of the dataset "X". Be as creative as you can in one, as deceptive as you can in the second, and then as clear as you can in the last.
+2. Now, using the dataset "Y", plot a heatmap. Aim for clarity!
+3. And finally, look at dataset "Z". Plot it the best way you think would show its key feature.
