@@ -21,7 +21,7 @@ Run this to install/load libraries (this might take a while if you do not have m
 source("helper.R") 
 ```
 ### Try it out! 
-- Output is returned once the function or command is evaluated. For example, this is how to use the print function. 
+- Output is returned once a function or command is evaluated. For example, this is how to use the print function. 
 Type this in and press enter: 
 ```  
 print("Hello World")
@@ -231,7 +231,7 @@ dist
 ``` 
 ?order
 ```
-- you can write your function for tasks that are usually repetitive or have some 'abstract' purpose (i.e., plotting scatter)
+- you can write your function for tasks that are usually repetitive or have some 'abstract' purpose (i.e., making scatter plots)
 ```
 my_plot <- function(data){ 
  plot(data, pch=19, col="blue", cex=2)
@@ -240,7 +240,7 @@ my_plot <- function(data){
 - Some functions don't require any input: 
 ``` 
 my_function <- function() {
-print("hello world!")
+print("Hello, world!")
 }
 
 my_function()
@@ -273,7 +273,7 @@ ls()     # lists all the objects in your environment
 
 
 # Part 2: MoRe 
-R is great for data analysis. This next part will go over how to read in data, some basic manipulations, and then visualization! 
+R is great for data analysis. This next part will go over how to read in data, do some basic manipulations, and then visualize the results! 
 
 ## Reading in data
 - Depending on the format, there are multiple ways to input data into R 
@@ -315,7 +315,7 @@ write.csv(my_list, file="my_list.csv")
 - As binary file
 ```
 all_my_data <- rnorm(10000) 
-my_function <- function(x){ 
+my_function <- function(){ 
   print("Hello, world!") 
 }
 save(all_my_data, my_function, file="my_data.Rdata")
@@ -337,7 +337,7 @@ dev.off()
 
 ### Clean up data
 Always good/necessary to do data/sanity checks. 
-- Do the data look like what you think they should? 
+- Do the data look how you think they should? 
 - Same number of lines imported as the file contains? 
 - No weird characters? Some special characters have special properties when being read in. 
 - How many empty values? Find/replace empty values with NAs 
