@@ -66,11 +66,11 @@ require(very_important_data)
 ## Before you arrive: 
 1. Make sure you've downloaded and installed R and RStudio. 
 2. Download the files that are in [data folder](../data). 
-3. Download the "helper.R" file. Source it to install all the packages and libraries. 
+3. Download the [helper.R](../lessons/helper.R) file. Source it to install all the packages and libraries. This might take a while! 
 
 ## On the day:
 We will go through two lessons that will teach you some basic R functions, data manipulation, and visualization.  
-You can follow along, or just watch. These lessons can be followed fairly independently. 
+You can follow along, or just watch. We will let you have some time to play (and ask questions).  
 
 
 ## WheRe to get help
