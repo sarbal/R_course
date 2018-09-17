@@ -33,13 +33,9 @@ if( !require("vioplot")){
 if( !require("pheatmap")){
   install.packages("pheatmap")
 }
-if( !require("vioplot")){
-  install.packages("vioplot")
-}
-
-if( !require("tidyverse")){
-  install.packages("tidyverse")
-}
+# if( !require("tidyverse")){
+#  install.packages("tidyverse")
+#}
 
 # Colors 
 cols = colorpanel(16, "red", "blue")
