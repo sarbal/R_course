@@ -276,7 +276,7 @@ plot(hc)
 plot(as.phylo(hc), type = "radial")
 ```
 
-Tutorials for more advanced plotting:
+Some tutorials for more advancedtypes of plots:
 - https://jokergoo.github.io/circlize_book/book/ 
 - https://cran.r-project.org/web/packages/phylogram/vignettes/phylogram-vignette.html
 - https://github.com/thomasp85/gganimate
