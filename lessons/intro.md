@@ -72,21 +72,25 @@ require(very_important_data)
 We will go through two lessons that will teach you some basic R functions, data manipulation, and visualization.  
 You can follow along, or just watch. We will let you have some time to play (and ask questions).  
 
-
 ## WheRe to get help
 - https://www.rstudio.com/
 - https://www.r-bloggers.com/
 - https://www.statmethods.net/index.html
 
-## OtheR useful stuff 
+## Useful tutoRials/couRses/books for R and genomics
+- Basic R: https://swirlstats.com/ 
+- Data analysis for life sciences: https://www.edx.org/xseries/data-analysis-life-sciences and http://genomicsclass.github.io/book/ 
+- RNA-seq from alignment -> gene set enrichment: https://bioinformatics-core-shared-training.github.io/RNAseq-R/
+- RNA-seq - DESeq2 tutorial: https://github.com/mikelove/DESeq2/blob/master/vignettes/DESeq2.Rmd
+- Single-cell RNA-seq analysis: https://hemberg-lab.github.io/scRNA.seq.course/ 
+
+## OtheR useful stuff
 - https://plot.ly/r/
 - https://shiny.rstudio.com/
 - https://rmarkdown.rstudio.com/
 - https://www.rstudio.com/resources/cheatsheets/ 
-- http://swirlstats.com/
 - https://www.tidyverse.org/
 - https://www.listendata.com/p/r-programming-tutorials.html
-- http://genomicsclass.github.io/book/
 - https://twitter.com/@RLangTip 
 - https://twitter.com/hashtag/rstats?src=hash
 - http://serialmentor.com/dataviz/
