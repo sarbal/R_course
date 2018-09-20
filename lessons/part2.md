@@ -5,6 +5,7 @@ For this part, you will need:
 - [my_dataA.csv](../data/my_dataA.csv)
 - [my_dataB.tab](../data/my_dataB.tab)
 - [DatasaurusDozen.txt](../data/DatasaurusDozen.txt)
+- [primer](../data/primer.Rdata)
 - [helper.R](../lessons/helper.R)
 
 ## Reading in data
