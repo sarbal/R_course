@@ -42,8 +42,14 @@ I'm bored
 ### Save/export data
 - As text 
 ```
-write.table(my_list, file="my_list.txt", sep="\t", quote="", row.names=T)
-write.csv(my_list, file="my_list.csv")
+first_line <- c("one", "two", "buckle", "my", "shoe")
+second_line <- c("three", "four", "shut", "the", "door")
+third_line <- c("five", "six", "pick", "up", "sticks")
+fourth_line <- c("seven", "eight", "lay", "them", "straight")
+fifth_line <- c("nine", "ten", "that's", "the", "end!")
+my_rhyme <- rbind(first_line, second_line, third_line, fourth_line,fifth_line) 
+write.table(my_rhyme, file="my_list.txt", sep="\t", quote="", row.names=T)
+write.csv(my_rhyme, file="my_list.csv")
 ```
 - As binary file
 ```
@@ -56,14 +62,16 @@ save(all_my_data, my_function, file="my_data.Rdata")
 ### Saving graphics 
 - As a pdf or postscript (vector graphics) 
 ```
+my_data <- 1:10
 pdf("my_plot.pdf") # or try postscript()  
 plot(my_data)
 dev.off() 
 ```
 - Or as an image (.png, .jpeg)
 ```
+my_data <- matrix(1:100, ncol=10, nrow=10)
 png("my_plot.png") # or try # jpg() 
-plot(my_data)
+image(my_data)
 dev.off() 
 ```
 
@@ -110,18 +118,32 @@ plot(lowess(iris$Sepal.Length, iris$Petal.Length), pch=19)
 plot(Petal.Length ~ Sepal.Length, data=iris, pch=19, col=Species)
 ```
 
-- We can view sepal width by species distributions with a boxplot, beanplot, violin plot or "joy" plots (note that the functions require the data to be in slightly different formats): 
+- We can view sepal width by species distributions with other types of plots (note that the functions require the data to be in slightly different formats): 
+- Beeswarms
+```
+boxplot( Sepal.Length ~ Species, data = iris)
+beeswarm(Sepal.Length ~ Species, data = iris, corral="gutter", pch=19, add = TRUE)
+```
+- Stripcharts
+```
+stripchart(Sepal.Length ~ Species, data=iris, pch=19, vertical=T,  method = 'jitter', jitter = 0.2)
+bxplot( Sepal.Length ~ Species, data = iris, add = TRUE)
+```
+- Beanplots 
+```
+beanplot( Sepal.Length ~ Species, data = iris, side="f", col="darkgreen")
+```
+- Violinplots 
 ``` 
-boxplot(iris$Sepal.Width~ iris$Species, col=1:3 )
-beanplot(iris$Sepal.Width~ iris$Species, col=list(1,2,3))
 iris.list = lapply( unique(iris$Species), function(si) iris$Sepal.Width[iris$Species==si]) 
 vioplot( iris.list[[1]], iris.list[[2]], iris.list[[3]], col="darkgreen")  
 ```
-- or take a look at the distribution of petal width
+
+- We can take a look at the distribution of petal width using a histogram: 
 ``` 
 hist(iris$Petal.Width, col="lightblue")
 ```
-- or build a barplot :
+- or build a barplot:
 ``` 
 iris.bar = tapply( iris$Sepal.Length, iris$Species, mean)
 barplot(iris.bar, col="black", xlab="Species", ylab="Count", main="Bar plot of mean Sepal Length")
@@ -221,21 +243,45 @@ pairs(iris, bg=1:3,lower.panel = panel.smooth, pch=19, upper.panel = panel.cor, 
 ```
 
 - Great. What if we want to ask how similar are these individual plants to each other within each species. What can we look at? 
-- Correlations are fun. 
+- Correlations are fun. Let's use heatmaps to show this. 
 ```
 iris2  = apply(iris[,1:4], 2, as.numeric)
-heatmap.3(iris2, RowSideCol=cols7[as.numeric(iris$Species)] , col=viridis(100))
+heatmap.2(iris2, RowSideCol=cols7[as.numeric(iris$Species)] , col=viridis(100), trace="none", density="none")
 iris.r  = t(apply(iris[,1:4], 1, rank))
-heatmap.3(iris.r, RowSideCol=cols7[as.numeric(iris$Species)] , col=viridis(100))
+heatmap.2(iris.r, RowSideCol=cols7[as.numeric(iris$Species)] , col=viridis(100), trace="none", density="none")
 iris.r2  = apply(iris[,1:4], 2, rank)
-heatmap.3(iris.r2, RowSideCol=cols7[as.numeric(iris$Species)] , col=viridis(100))
+heatmap.2(iris.r2, RowSideCol=cols7[as.numeric(iris$Species)] , col=viridis(100), trace="none", density="none")
 samples.cor = cor( t(iris2) )
-heatmap.3(samples.cor, col=plasma(100), ColSideCol=cols7[as.numeric(iris$Species)])
+heatmap.2(samples.cor, col=plasma(100), ColSideCol=cols7[as.numeric(iris$Species)], trace="none", density="none")
 ```
 
 
+Other plots
+- Venn diagrams
+```
+require(venn)
+venn( list( 1:10, 5:15, 1:9, 3:9, 5:6, 9:100), zcol=magma(7) , ellipse = T)
+require(venneuler)
+plot(venneuler( c(A = 10, B =15, "A&B" = 4) ) )
+```
+- Trees and dendrograms 
+```
+require(ape)
+data(USArrests)
+dd <- dist(scale(USArrests), method = "euclidean")
+hc <- hclust(dd, method = "ward.D2")
+# Dendrogram
+plot(hc)
+# Tree 
+plot(as.phylo(hc), type = "radial")
+```
+
+Tutorials for more advanced plotting:
+- https://jokergoo.github.io/circlize_book/book/ 
+- https://cran.r-project.org/web/packages/phylogram/vignettes/phylogram-vignette.html
+
 ## "Tidyr" versions 
-We can do most of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). It is generally more intuitive. 
+We can do most of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). To some it is generally more intuitive...
 ```
 g <- ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) 
 g
