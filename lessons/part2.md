@@ -279,6 +279,7 @@ plot(as.phylo(hc), type = "radial")
 Tutorials for more advanced plotting:
 - https://jokergoo.github.io/circlize_book/book/ 
 - https://cran.r-project.org/web/packages/phylogram/vignettes/phylogram-vignette.html
+- https://github.com/thomasp85/gganimate
 
 ## "Tidyr" versions 
 We can do most of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). To some it is generally more intuitive...
