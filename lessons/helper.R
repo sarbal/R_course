@@ -6,9 +6,6 @@
 ##  Date: July 23rd, 2018
 
 ## Necessary libraries
-if( !require("rJava")){
-  install.packages("rJava")
-}
 if( !require("gplots")){
   install.packages("gplots")
 }
@@ -41,9 +38,6 @@ if( !require("ape")){
 }
 if( !require("venn")){
  install.packages("venn")
-}
-if( !require("venneuler")){
- install.packages("venneuler")
 }
 
 # Colors 
