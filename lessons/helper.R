@@ -6,6 +6,9 @@
 ##  Date: July 23rd, 2018
 
 ## Necessary libraries
+if( !require("rJava")){
+  install.packages("rJava")
+}
 if( !require("gplots")){
   install.packages("gplots")
 }
