@@ -1,5 +1,5 @@
 # Part 2: MoRe 
-R is great for data analysis. This next part will go over how to read in data, dp some basic manipulations, and then visualize the results! 
+R is great for data analysis. This next part will go over how to read in data, do some basic manipulations, and then visualize the results! 
 
 For this part, you will need: 
 - [my_dataA.csv](../data/my_dataA.csv)
@@ -280,7 +280,7 @@ Some tutorials for more advancedtypes of plots:
 - https://github.com/thomasp85/gganimate
 
 ## "Tidyr" versions 
-We can do most of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). To some it is generally more intuitive...
+We can do most of this with [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). 
 ```
 g <- ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) 
 g
