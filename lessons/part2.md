@@ -261,8 +261,6 @@ Other plots
 ```
 require(venn)
 venn( list( 1:10, 5:15, 1:9, 3:9, 5:6, 9:100), zcol=magma(7) , ellipse = T)
-require(venneuler)
-plot(venneuler( c(A = 10, B =15, "A&B" = 4) ) )
 ```
 - Trees and dendrograms 
 ```
